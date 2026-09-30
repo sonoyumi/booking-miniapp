@@ -5,33 +5,47 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "booking-miniapp"
 version = "0.1.0"
-description = "Короткое описание проекта"
+description = "Telegram Mini App for booking-bot: a web booking screen inside Telegram with initData authentication, sharing the bot's schedule and database (FastAPI + vanilla JS)"
 readme = "README.md"
+license = { file = "LICENSE" }
 requires-python = ">=3.11"
 authors = [{ name = "Vladyslav Shokun", email = "sonoyumiii@gmail.com" }]
 dependencies = [
-    # "httpx>=0.27",
+    # The bot is a library here: same schedule rules, same database, same services file.
+    "booking-bot @ git+https://github.com/sonoyumi/booking-bot.git@2f913bb9b2632634e12e7aca31ad61ba3e60565d",
+    "fastapi>=0.115,<1",
+    "uvicorn[standard]>=0.30,<1",
+    "python-dotenv>=1.0,<2",
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "httpx>=0.27",
     "ruff>=0.6",
 ]
 
+[project.urls]
+Repository = "https://github.com/sonoyumi/booking-miniapp"
+
 [project.scripts]
-booking-miniapp = "booking_miniapp.__main__:main"
+booking-miniapp = "booking_miniapp.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+booking_miniapp = ["static/*"]
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+asyncio_mode = "auto"
 
 [tool.ruff]
-line-length = 110
+line-length = 120
 target-version = "py311"
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "I", "B", "UP"]
+select = ["E", "F", "W", "I", "B", "UP", "ASYNC"]

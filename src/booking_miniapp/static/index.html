@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Запись онлайн</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1 id="shop">Запись онлайн</h1>
+    <nav role="tablist">
+      <button type="button" role="tab" id="tab-book" aria-selected="true">Записаться</button>
+      <button type="button" role="tab" id="tab-my" aria-selected="false">Мои записи</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="screen-services" class="screen">
+      <p class="hint">Выберите услугу</p>
+      <ul id="services" class="list"><li class="empty">Загрузка…</li></ul>
+    </section>
+
+    <section id="screen-days" class="screen" hidden>
+      <p class="hint"><span id="days-service"></span> — выберите день</p>
+      <div id="days" class="chips"></div>
+    </section>
+
+    <section id="screen-slots" class="screen" hidden>
+      <p class="hint"><span id="slots-title"></span> — выберите время</p>
+      <div id="slots" class="grid"></div>
+      <p id="slots-empty" class="empty" hidden>На этот день свободного времени нет.</p>
+    </section>
+
+    <section id="screen-confirm" class="screen" hidden>
+      <div class="card">
+        <p class="hint">Проверьте запись</p>
+        <p id="confirm-service" class="big"></p>
+        <p id="confirm-when"></p>
+        <p id="confirm-price" class="muted"></p>
+      </div>
+      <button type="button" id="confirm-fallback" class="primary" hidden>Записаться</button>
+    </section>
+
+    <section id="screen-done" class="screen" hidden>
+      <div class="card done">
+        <p class="big">✅ Вы записаны!</p>
+        <p id="done-text"></p>
+        <p class="muted">Бот напомнит заранее. Отменить можно во вкладке «Мои записи».</p>
+      </div>
+      <button type="button" id="done-again" class="secondary">Записаться ещё</button>
+    </section>
+
+    <section id="screen-my" class="screen" hidden>
+      <ul id="my" class="list"></ul>
+      <p id="my-empty" class="empty" hidden>У вас нет предстоящих записей.</p>
+    </section>
+
+    <section id="screen-error" class="screen" hidden>
+      <div class="card">
+        <p class="big">Откройте запись через Telegram</p>
+        <p class="muted" id="error-text">Эта страница работает внутри Telegram: нажмите кнопку «Записаться» в чате с ботом.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

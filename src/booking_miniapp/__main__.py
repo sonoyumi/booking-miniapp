@@ -1,13 +1,8 @@
-"""Точка входа: `python -m booking_miniapp` или команда `booking-miniapp`."""
+"""Entry points: `python -m booking_miniapp` or the `booking-miniapp` command."""
 
+import sys
 
-def greet(name: str) -> str:
-    return f"Привет, {name}!"
-
-
-def main() -> None:
-    print(greet("мир"))
-
+from booking_miniapp.cli import main
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
