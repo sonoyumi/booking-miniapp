@@ -10,6 +10,17 @@
 
 **🇬🇧 [English](#en)** · **🇮🇹 [Italiano](#it)** · **🇺🇦 [Українська](#uk)** · **🇷🇺 [Русский](#ru)**
 
+<table align="center">
+  <tr>
+    <td><img src="docs/assets/services.png" alt="Choose a service" width="380"></td>
+    <td><img src="docs/assets/slots.png" alt="Choose a time slot" width="380"></td>
+  </tr>
+  <tr>
+    <td><img src="docs/assets/done.png" alt="Booking confirmed" width="380"></td>
+    <td><img src="docs/assets/my-bookings.png" alt="My bookings with cancel" width="380"></td>
+  </tr>
+</table>
+
 ---
 
 <a name="en"></a>
